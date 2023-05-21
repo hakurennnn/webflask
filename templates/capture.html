@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Emotion Detection - Capture</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0"></script>
+</head>
+<body>
+    <h1>Capture Emotion</h1>
+    <div class="navigation-buttons">
+        <a href="{{ url_for('home') }}" class="home-button">Home</a>
+        <a href="{{ url_for('capture') }}" class="capture-button" onclick="toggleDescription(event)">Capture</a>
+        <a href="{{ url_for('gallery') }}" class="gallery-button">Gallery</a>
+        <a href="{{ url_for('about') }}" class="about-button">About Us</a>
+    </div>
+    
+    <div class="video-container">
+        <div id="video-feed">
+            <video id="video" autoplay></video>
+            <canvas id="video-canvas"></canvas>
+        </div>
+        <div class="bounding-box"></div>
+    </div>
+    <div class="capture-navigation-buttons">
+        <div class="button-container">
+            <button class="circle-button start-viewfinder-button" onclick="startViewfinder()">S</button>
+        </div>
+        <div class="button-container">
+            <button class="circle-button capture-frame-button" onclick="captureFrame()">C</button>
+        </div>
+    </div>
+    <div class="predicted-emotion-container">
+        <h2>Predicted Emotion:</h2>
+        <p id="predicted-emotion"></p>
+    </div>
+    <script src="{{ url_for('static', filename='capture.js') }}"></script>
+    <script src="{{ url_for('static', filename='gallery.js') }}"></script>
+</body>
+</html>

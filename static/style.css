@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Outfit';
+    src: url('../static/fonts/Outfit-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('../static/fonts/Roboto-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 1440px;
+    height: 100vh;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navigation-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 180px;
+    margin-top: 20px;
+}
+
+/*navigation group wag galawin */
+.home-button,
+.capture-button,
+.gallery-button,
+.about-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 255px;
+    height: 68px;
+    background: #1A2020;
+    border: 1px solid #2D3B3C;
+    border-radius: 66px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    letter-spacing: 0.1em;
+    color: #FFFFFF;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+/* navigation group - capture page buttons */
+.home-button:hover,
+.capture-button:hover,
+.gallery-button:hover,
+.about-button:hover {
+    background: #2D3B3C; /* to change/figma color palette */
+}
+
+/*dont group - di nagana*/
+.circle-button:hover{
+    background: #2D3B3C;  /* to change/figma color palette */
+}
+
+h1 {
+    font-family: 'Outfit', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 100%;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+p {
+    font-family: 'Roboto', Arial, sans-serif;
+    font-weight: 100;
+    font-size: 32px;
+    line-height: 38px;
+    text-align: center;
+    color: #000000;
+}
+
+.circle-button {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #333;
+    border: none;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: bold;
+    font-size: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    margin-right: 0;
+}
+
+.capture-navigation-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+
+p#app-description {
+    opacity: 0;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.start-viewfinder-button,
+.capture-frame-button {
+    margin-right: 0;
+}
+
+/* video box container */
+.bounding-box {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1600px;
+    height: 700px;
+    border: 2px solid #000000;
+    pointer-events: none;
+}
+
+.video-container {
+    position: relative;
+}
