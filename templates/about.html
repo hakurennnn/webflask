@@ -2,20 +2,53 @@
 <html>
 <head>
     <title>Emotion Detection - About</title>
-    <!-- Add any CSS or JavaScript links specific to the about page -->
-    <link rel="stylesheet" type="text/css" href="../static/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Add your about page content here -->
     <h1>About Us</h1>
-    <p>Some information about your project or team...</p>
-
-    <!-- Navigation links/buttons -->
     <div class="navigation-buttons">
-        <a href="/" class="home-button">Home</a>
-        <a href="/capture" class="capture-button">Capture</a>
-        <a href="/gallery" class="gallery-button">Gallery</a>
-        <a href="/about" class="about-button" onclick="toggleDescription(event)">About Us</a>
+        <a href="{{ url_for('home') }}" class="home-button">Home</a>
+        <a href="{{ url_for('show_capture') }}" class="capture-button">Capture</a>
+        <a href="{{ url_for('show_gallery') }}" class="gallery-button">Gallery</a>
+        <a href="{{ url_for('about') }}" class="about-button" onclick="toggleDescription(event)">About Us</a>
     </div>
+    <div class="picture-group picture-group1">
+        <div class="portrait-pics1"></div>
+    </div>
+    <div class="picture-group picture-group2">
+        <div class="portrait-pics2"></div>
+    </div>
+    <div class="picture-group picture-group3">
+        <div class="portrait-pics3"></div>
+    </div>
+    <div class="picture-group picture-group4">
+        <div class="portrait-pics4"></div>
+    </div>
+    <div class="picture-group picture-group5">
+        <div class="portrait-pics5"></div>
+    </div>
+    <div class="information-container">
+        <div class="information" id="information1">
+            <h2>Alexia Jose Roque</h2>
+            <p>Computer Engineering</p>
+        </div>
+        <div class="information" id="information2">
+            <h2>Gene Dlaenor Roque</h2>
+            <p>Computer Engineering</p>
+        </div>
+        <div class="information" id="information3">
+            <h2>Sam Ryan Ruiz</h2>
+            <p>Computer Engineering</p>
+        </div>
+        <div class="information" id="information4">
+            <h2>Nhyko Miguel Salonga</h2>
+            <p>Computer Engineering</p>
+        </div>
+        <div class="information" id="information5">
+            <h2>Kurt Daniel San Juan</h2>
+            <p>Computer Engineering</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='people.js') }}"></script>
 </body>
 </html>

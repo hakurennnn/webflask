@@ -2,31 +2,20 @@
 <html>
 <head>
     <title>Emotion Detection - Gallery</title>
-    <!-- Add any CSS or JavaScript links specific to the gallery page -->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <!-- Add your gallery page content here -->
     <h1>Image Gallery</h1>
+    <div class="navigation-buttons">
+        <a href="{{ url_for('home') }}" class="home-button">Home</a>
+        <a href="{{ url_for('show_capture') }}" class="capture-button">Capture</a>
+        <a href="{{ url_for('show_gallery') }}" class="gallery-button" onclick="toggleDescription(event)">Gallery</a>
+        <a href="{{ url_for('about') }}" class="about-button">About Us</a>
+    </div>
     <div id="image-gallery">
         <!-- Display the gallery of captured images or other related content here -->
     </div>
-
-    <!-- Navigation links/buttons -->
-    <div class="navigation-buttons">
-        <a href="{{ url_for('home') }}" class="home-button">Home</a>
-        <a href="{{ url_for('capture') }}" class="capture-button">Capture</a>
-        <a href="{{ url_for('gallery') }}" class="gallery-button" onclick="toggleDescription(event)">Gallery</a>
-        <a href="{{ url_for('about') }}" class="about-button">About Us</a>
-    </div>
-
-    <!-- Predicted emotion container -->
-    <div class="predicted-emotion-container">
-        <h2>Predicted Emotion:</h2>
-        <p id="predicted-emotion"></p>
-    </div>
-
-    <!-- JavaScript code here to handle the gallery functionality -->
+    <script src="{{ url_for('static', filename='capture.js') }}"></script>
     <script src="{{ url_for('static', filename='gallery.js') }}"></script>
 </body>
 </html>
