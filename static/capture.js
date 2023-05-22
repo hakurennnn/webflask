@@ -5,27 +5,25 @@ async function startViewfinder() {
     try {
         const stream = await navigator.mediaDevices.getUserMedia({ video: true });
         video.srcObject = stream;
-        video.play();
+        await video.play();
         boundingBox.appendChild(video);
-        await tf.setBackend('webgl');
-        facialEmotionAnalysis();
     } catch (error) {
         console.error('Error accessing the webcam:', error);
     }
 }
 
-function captureFrame() {
+async function captureFrame() {
+    const emotions = ['angry', 'happy', 'neutral', 'sad', 'surprise'];
     const video = document.getElementById('video');
-    const canvas = document.getElementById('video-canvas');
+    
+    const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d');
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
     context.drawImage(video, 0, 0, canvas.width, canvas.height);
-    const imageDataURL = canvas.toDataURL('image/png');
-    facialEmotionAnalysis(imageDataURL);
-}
-
-// facial emotions
-async function facialEmotionAnalysis(imageDataURL) {
-    const emotions = ['angry', 'disgust', 'fear', 'happy', 'sad', 'surprise', 'neutral'];
+    
+    const imageDataURL = canvas.toDataURL();
+    
     const response = await fetch('/process_frame', {
         method: 'POST',
         headers: {
@@ -33,8 +31,18 @@ async function facialEmotionAnalysis(imageDataURL) {
         },
         body: JSON.stringify({ image: imageDataURL }),
     });
+    
     const data = await response.json();
     const predictedEmotion = emotions[data.emotion];
-    // Display
     document.getElementById('predicted-emotion').textContent = predictedEmotion;
+    
+    saveCapturedFrame(imageDataURL, predictedEmotion);
+    window.location.href = 'gallery.html';
 }
+
+function saveCapturedFrame(imageDataURL, predictedEmotion) {
+    localStorage.setItem('capturedFrame', imageDataURL);
+    localStorage.setItem('predictedEmotion', predictedEmotion);
+}
+
+document.querySelector('.start-viewfinder-button').addEventListener('click', startViewfinder);
