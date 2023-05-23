@@ -12,9 +12,17 @@
         <a href="{{ url_for('show_gallery') }}" class="gallery-button" onclick="toggleDescription(event)">Gallery</a>
         <a href="{{ url_for('about') }}" class="about-button">About Us</a>
     </div>
-    <div id="image-gallery">
-        <!-- Display the gallery of captured images or other related content here -->
+    <div class="bounding-box1">
+        <div class="grid-item">
+            <div id="image-gallery"></div>
+        </div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
+        <div class="grid-item"></div>
     </div>
+
     <script src="{{ url_for('static', filename='capture.js') }}"></script>
     <script src="{{ url_for('static', filename='gallery.js') }}"></script>
 </body>
